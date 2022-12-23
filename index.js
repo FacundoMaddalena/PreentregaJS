@@ -1,6 +1,6 @@
 let cartIcon = document.querySelector('#cart-icon');
 let cart = document.querySelector('.cart');
-let closCart = document.querySelector('#cart-icon');
+let closeCart = document.querySelector('#cart-icon');
 
 cartIcon.onclick = () =>{
     cart.classList.add("active");
@@ -36,12 +36,12 @@ function ready(){
         button.addEventListener("click", addCartClicked);
     }
     document
-    .getElementsByClassName('btn-buy')[0]
-    .addEventListener('click', buyButtonClicked);   
+    .getElementsByClassName("btn-buy")[0]
+    .addEventListener("click", buyButtonClicked);
 }
 
 function buyButtonClicked(){
-    alert("your Order is placed")
+    alert("Hiciste tu pedido")
     var cartContent = document.getElementsByClassName('cart-content')[0]
     while (cartContent.hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild);
@@ -81,7 +81,7 @@ function addProductToCart(title, prince, productImg){
     var cartItems = document.getElementsByClassName('cart-content')[0];
     var cartItemNames = cartItems.getElementsByClassName('cart-product-title')
     for (var i = 0; i < createItemsName.length; i++){
-        alert("You have already add this item to cart");
+        alert("Ya añadiste este artículo");
         return;
     }
 }
@@ -101,15 +101,15 @@ cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', r
 cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
 
 function updatetotal(){
-    var cartContent = document.getElementsByClassName('cart-content')[0]
-    var cartBox = cartContent.getElementsByClassName('cart-box')
+    var cartContent = document.getElementsByClassName('cart-content')[0];
+    var cartBox = cartContent.getElementsByClassName('cart-box');
     var total = 0;
     for (var i = 0; i < cartBoxes.length; i++){
-        var cartBox = cartBoxes[i]
-        var priceElement = cartBox.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
-        var quantity = quantityElement.value
-        var prince = parseFloat(princeElement.innerText.replace("$",""))
+        var cartBox = cartBoxes[i];
+        var priceElement = cartBox.getElementsByClassName('cart-price')[0];
+        var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
+        var quantity = quantityElement.value;
+        var prince = parseFloat(princeElement.innerText.replace("$",""));
         var quantity = quantityElement.value;
         total = total +  (prince * quantity);
 
