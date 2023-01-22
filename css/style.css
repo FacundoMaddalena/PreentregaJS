@@ -14,7 +14,7 @@
     --main-color: red;
     --text-color: black;
     --bg-color: #fff;
-}
+} 
 
 img{
     width: 100%;
@@ -40,7 +40,7 @@ header{
     left: 0;
     width: 100%;
     background: var(--bg-color);
-    box-shadow: 0 1px 4px hsl(0, 4%, 15% / 10);
+    box-shadow: 0 1px 4px;
     z-index: 100;
 }
 
@@ -71,7 +71,7 @@ header{
     min-height: 100vh;
     padding: 20px;
     background: var(--bg-color);
-    box-shadow: -2px 0 4px hsl(0, 4%, 15% / 10);
+    box-shadow: -2px 0 4px;
     transition: 0.3s;
 }
 
@@ -89,6 +89,7 @@ header{
 .cart-box{
     display: grid;
     grid-template-columns: 32% 50% 18%;
+    align-items: center;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -110,7 +111,7 @@ header{
     text-transform: uppercase;
 }
 
-.cart-prince{
+.cart-price{
     font-weight: 500;
 }
 
@@ -126,6 +127,58 @@ header{
     font-size: 24px;
     color: var(--main-color);
     cursor: pointer;
+}
+
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--text-color);
+}
+
+.total-title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.total-price{
+    margin-left: 0.5rem;
+}
+
+.btn-buy{
+    display: flex;
+    margin: 1.5rem auto 0 auto;
+    padding: 12px 20px;
+    border: none;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-buy:hover{
+    background: var(--text-color);
+}
+
+#close-cart{
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.cart.active{
+    right: 0;
+}
+
+.cart.title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-size: 600;
+    margin-top: 2rem;
 }
 
 .section-title{
@@ -167,7 +220,7 @@ header{
     margin-bottom: 0.5rem;
 }
 
-.prince{
+.price{
     font-weight: 500;
 }
 
