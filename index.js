@@ -26,7 +26,7 @@ function ready(){
         button.addEventListener("click", removeCartItem)
     }
     var quantityInputs = document.getElementsByClassName('cart-quantity')
-    for(var i = 0; i < quantityInputs.length; i++){
+    for(var i = 1; i < quantityInputs.length; i++){
         var input = quantityInputs[i]
         input.addEventListener('change',quantityChanged);
     }
@@ -36,8 +36,7 @@ function ready(){
         button.addEventListener("click", addCartClicked);
     }
     document.getElementsByClassName("btn-buy")[0]
-            .addEventListener("click", buyButtonClicked);
-        
+            .addEventListener("click", buyButtonClicked); 
 }
 
 function buyButtonClicked(){
@@ -58,7 +57,7 @@ function removeCartItem(event){
 
 function quantityChanged(event){
     var input = event.target
-    if (isNaN(input.value) || input.value <= 0){
+    if (isNaN(input.value) || input.value <= 1){
         input.value = 1;
     }
     updatetotal()
@@ -66,7 +65,7 @@ function quantityChanged(event){
 
 function addCartClicked(event){
     var button = event.target
-    var shopProducts = buttons.parentElement
+    var shopProducts = button.parentElement
     var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
     var price = shopProducts.getElementsByClassName("price")[0].innerText;
     var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
@@ -80,7 +79,7 @@ function addProductToCart(title, price, productImg) {
         cartShopBox.classList.add('cart-box')
     var cartItems = document.getElementsByClassName('cart-content')[0];
     var cartItemNames = cartItems.getElementsByClassName('cart-product-title');
-    for (var i = 0; i < createItemsName.length; i++){
+    for (var i = 0; i < cartItemNames.length; i++){
         if(cartItemNames[i].innerHTML == title){ 
         alert("Ya añadiste este artículo");
         return;
@@ -96,28 +95,29 @@ var cartBoxContent =`   <div>
 
                         <i class='bx bxs-trash-alt' class="cart-remove"></i>`;
 
-cartShopBox.innerHTML = cartBoxContent
-cartItems.append(cartShopBox)
-cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem)
-cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
+    cartShopBox.innerHTML = cartBoxContent
+    cartItems.append(cartShopBox)
+    cartShopBox.getElementsByClassName("cart-remove")[0];
+    cartShopBox.addEventListener("click", removeCartItem);
+    cartShopBox.getElementsByClassName('cart-quantity')[0];
+    cartShopBox.addEventListener('change', quantityChanged);
 
 }
 
 function updatetotal(){
     var cartContent = document.getElementsByClassName('cart-content')[0];
-    var cartBox = cartContent.getElementsByClassName('cart-box');
+    var cartBoxes = cartContent.getElementsByClassName('cart-box');
     var total = 0;
     for (var i = 0; i < cartBoxes.length; i++){
         var cartBox = cartBoxes[i];
         var priceElement = cartBox.getElementsByClassName('cart-price')[0];
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
-        var quantity = quantityElement.value;
-        var price = parseFloat(priceElement.innerText.replace("$",""));
+        var price = parseFloat (priceElement.innerText.replace("$",""));
         var quantity = quantityElement.value;
         total = total +  (price * quantity);
 
         total = Math.round(total*100) / 100;
 
-        document.getElementsByClassName('total-price')[0].innerText = "$" + total;
+        document.getElementsByClassName(`total-price`)[0].innerText = "$" + total;
     }
 }

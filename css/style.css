@@ -224,7 +224,7 @@ header{
     font-weight: 500;
 }
 
-.add-card{
+.add-cart{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -234,7 +234,7 @@ header{
     cursor: pointer;
 }
 
-.add-card:hover{
+.add-cart:hover{
     background: hsl(249, 32%, 17%);
 }
 
